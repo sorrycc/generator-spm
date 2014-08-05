@@ -1,0 +1,14 @@
+{
+  "name": "<%= name %>",
+  "version": "<%= version %>",
+  "keywords": [
+    "spm-project"
+  ],
+  "spm": {
+    "output": [
+      "index.css",
+      "index.js"
+    ],
+    "buildArgs": "--include <%= include %>"
+  }
+}
