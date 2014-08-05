@@ -1,6 +1,6 @@
 {
   "name": "generator-spm",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A SPM Project generator for Yeoman.",
   "main": "app/index.js",
   "scripts": {
