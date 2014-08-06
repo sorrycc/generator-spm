@@ -52,7 +52,8 @@ var SPMGenerator = yeoman.generators.Base.extend({
         type: 'list',
         default: 'simple',
         choices: [
-          'simple'
+          'simple',
+          'complex'
         ]
       }
     ];
@@ -65,7 +66,7 @@ var SPMGenerator = yeoman.generators.Base.extend({
   },
 
   app: function() {
-    this.template('simple/_package.json', 'package.json');
+    this.template(this.type + '/package.json', 'package.json');
   },
 
   projectfiles: function() {
@@ -78,6 +79,10 @@ var SPMGenerator = yeoman.generators.Base.extend({
         } else {
           this.copy('simple/index_with_seajs.html', 'index.html');
         }
+        break;
+      case 'complex':
+        addMod.call(this, 'modA');
+        addPage.call(this, 'index');
         break;
       default:
         break;
@@ -97,5 +102,22 @@ var SPMGenerator = yeoman.generators.Base.extend({
     }
   }
 });
+
+function addMod(mod) {
+  this.mod = mod;
+  this.template('complex/mod.css', 'mods/'+mod+'/index.css');
+  this.template('complex/mod.js', 'mods/'+mod+'/index.js');
+}
+
+function addPage(page) {
+  this.page = page;
+  this.template('complex/page.css', 'pages/'+page+'.css');
+  this.template('complex/page.js', 'pages/'+page+'.js');
+  if (this.include === 'standalone') {
+    this.template('complex/page.html', 'pages/'+page+'.html');
+  } else {
+    this.template('complex/page_with_seajs.html', 'pages/'+page+'.html');
+  }
+}
 
 module.exports = SPMGenerator;

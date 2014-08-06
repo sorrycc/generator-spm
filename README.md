@@ -58,6 +58,7 @@ Complex
         - index.js
 + pages
     - pageA.html
-    - pageB.html
+    - pageA.js
+    - pageA.css
 - package.json
 ```
