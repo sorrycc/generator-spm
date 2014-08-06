@@ -73,7 +73,11 @@ var SPMGenerator = yeoman.generators.Base.extend({
       case 'simple':
         this.copy('simple/index.css', 'index.css');
         this.copy('simple/index.js', 'index.js');
-        this.copy('simple/index.html', 'index.html');
+        if (this.include === 'standalone') {
+          this.copy('simple/index.html', 'index.html');
+        } else {
+          this.copy('simple/index_with_seajs.html', 'index.html');
+        }
         break;
       default:
         break;
