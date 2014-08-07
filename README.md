@@ -11,11 +11,16 @@ $ npm install generator-spm -g
 
 ## Usage
 
-Init project.
+Init project
 
 ```bash
+# 
 $ yo spm
+```
 
+If choosing `complex` Project Type, you can add `mod` and `page` seperatly.
+
+```bash
 # add mod
 $ yo spm:mod foo
 
@@ -23,7 +28,7 @@ $ yo spm:mod foo
 $ yo spm:page bar
 ```
 
-Run.
+Run
 
 ```bash
 $ npm install spm-server -g
