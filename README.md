@@ -14,7 +14,6 @@ $ npm install generator-spm -g
 Init project
 
 ```bash
-# 
 $ yo spm
 ```
 
