@@ -15,6 +15,12 @@ Init project.
 
 ```bash
 $ yo spm
+
+# add mod
+$ yo spm:mod foo
+
+# add page
+$ yo spm:page bar
 ```
 
 Run.
@@ -53,7 +59,6 @@ Complex
     + modA
         - index.js
         - index.css
-        - index.tpl
     + modB
         - index.js
 + pages

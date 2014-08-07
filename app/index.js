@@ -1,9 +1,9 @@
-var util = require('util');
 var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
 var extend = require('extend');
 var superb = require('superb');
 var spawn = require('win-spawn');
+var util = require('../util');
 
 var SPMGenerator = yeoman.generators.Base.extend({
 
@@ -81,8 +81,8 @@ var SPMGenerator = yeoman.generators.Base.extend({
         }
         break;
       case 'complex':
-        addMod.call(this, 'modA');
-        addPage.call(this, 'index');
+        util.addMod.call(this, 'modA');
+        util.addPage.call(this, 'index');
         break;
       default:
         break;
@@ -102,22 +102,5 @@ var SPMGenerator = yeoman.generators.Base.extend({
     }
   }
 });
-
-function addMod(mod) {
-  this.mod = mod;
-  this.template('complex/mod.css', 'mods/'+mod+'/index.css');
-  this.template('complex/mod.js', 'mods/'+mod+'/index.js');
-}
-
-function addPage(page) {
-  this.page = page;
-  this.template('complex/page.css', 'pages/'+page+'.css');
-  this.template('complex/page.js', 'pages/'+page+'.js');
-  if (this.include === 'standalone') {
-    this.template('complex/page.html', 'pages/'+page+'.html');
-  } else {
-    this.template('complex/page_with_seajs.html', 'pages/'+page+'.html');
-  }
-}
 
 module.exports = SPMGenerator;
