@@ -32,7 +32,6 @@ Run
 ```bash
 $ npm install spm-server -g
 $ spm-server
-$ open http://localhost:8000
 ```
 
 ## Options
